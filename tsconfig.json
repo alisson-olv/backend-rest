@@ -13,6 +13,7 @@
     "lib": ["es2016", "dom"],
     "resolveJsonModule": true,
     "baseUrl": ".",
+    "types": ["jest", "node"],
     "paths": {
       "@/*": ["src/*"]
     }

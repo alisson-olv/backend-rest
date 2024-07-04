@@ -14,6 +14,8 @@ export const signUpValidation = validation((getSchema) => ({
       name: yup.string().required().min(3),
       email: yup.string().required().email().min(5),
       password: yup.string().required().min(6),
+      created_at: yup.date().default(() => new Date()),
+      updated_at: yup.date().default(() => new Date()),
     })
   ),
 }));

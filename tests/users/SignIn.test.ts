@@ -1,4 +1,3 @@
-import { signIn } from './../../src/server/controllers/users/SignIn';
 import { IUser } from '../../src/server/database/models';
 import { testServer } from './../jest.setup';
 import { StatusCodes } from 'http-status-codes';
@@ -7,7 +6,7 @@ const endPointSignInUser = '/users/signin';
 const endPointSignUpUser = '/users/signup';
 
 describe('Users - SignIn', () => {
-  const user: Omit<IUser, 'id'> = {
+  const user: Omit<IUser, 'id' | 'created_at' | 'updated_at'> = {
     email: 'chico1@hotmail.com',
     name: 'chico moedas',
     password: '1234567',

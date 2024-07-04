@@ -7,6 +7,14 @@ export const create = async (
   user: Omit<IUser, 'id'>
 ): Promise<number | Error> => {
   try {
+    const existingUser = await Knex(ETableNames.user)
+      .where('email', user.email)
+      .first();
+
+    if (existingUser) {
+      return new Error('E-mail already in use');
+    }
+
     const hashedPassword = await PasswordCrypto.hashPassword(user.password);
 
     const [result] = await Knex(ETableNames.user)

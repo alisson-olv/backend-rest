@@ -6,7 +6,7 @@ const endPointSignUpUser = '/users/signup';
 
 describe('Users - SignUp', () => {
   it('Should create a new user', async () => {
-    const user: Omit<IUser, 'id'> = {
+    const user: Omit<IUser, 'id' | 'created_at' | 'updated_at'> = {
       email: 'binho_alisson@hotmail.com',
       name: 'Alisson',
       password: '1234567',
@@ -19,7 +19,7 @@ describe('Users - SignUp', () => {
   });
 
   it('Should create a new user 2', async () => {
-    const user: Omit<IUser, 'id'> = {
+    const user: Omit<IUser, 'id' | 'created_at' | 'updated_at'> = {
       email: 'binho_alisson22@hotmail.com',
       name: 'Alisson',
       password: '1234567',
@@ -32,13 +32,13 @@ describe('Users - SignUp', () => {
   });
 
   it('Should not create a user with duplicated email', async () => {
-    const user1: Omit<IUser, 'id'> = {
+    const user1: Omit<IUser, 'id' | 'created_at' | 'updated_at'> = {
       email: 'binho_alisson25@hotmail.com',
       name: 'Alisson Souza',
       password: '1234567',
     };
 
-    const user2: Omit<IUser, 'id'> = {
+    const user2: Omit<IUser, 'id' | 'created_at' | 'updated_at'> = {
       email: 'binho_alisson25@hotmail.com',
       name: 'Alisson Souza',
       password: '1234567',
@@ -52,7 +52,7 @@ describe('Users - SignUp', () => {
   });
 
   it('Should not create a user without email', async () => {
-    const user: Omit<IUser, 'id' | 'email'> = {
+    const user: Omit<IUser, 'id' | 'created_at' | 'updated_at' | 'email'> = {
       name: 'Alisson',
       password: '1234567',
     };
@@ -64,7 +64,7 @@ describe('Users - SignUp', () => {
   });
 
   it('Should not create a user without name', async () => {
-    const user: Omit<IUser, 'id' | 'name'> = {
+    const user: Omit<IUser, 'name' | 'id' | 'created_at' | 'updated_at'> = {
       email: 'Alisson@hotmail.com',
       password: '1234567',
     };
@@ -76,7 +76,7 @@ describe('Users - SignUp', () => {
   });
 
   it('Should not create a user without password', async () => {
-    const user: Omit<IUser, 'id' | 'password'> = {
+    const user: Omit<IUser, 'id' | 'password' | 'created_at' | 'updated_at'> = {
       name: 'Alisson',
       email: 'alisson@hotmail.com',
     };
@@ -88,7 +88,7 @@ describe('Users - SignUp', () => {
   });
 
   it('Should not create a user with invalid type of email', async () => {
-    const user: Omit<IUser, 'id'> = {
+    const user: Omit<IUser, 'id' | 'created_at' | 'updated_at'> = {
       name: 'Alisson',
       email: 'alisson.hotmail.com',
       password: '1234567',

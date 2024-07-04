@@ -7,7 +7,8 @@ import { IUser } from '../../database/models';
 import { UsersProvider } from '../../database/providers/users';
 import { JWTService, PasswordCrypto } from '../../shared/services';
 
-interface IBodyProps extends Omit<IUser, 'id' | 'name'> {}
+interface IBodyProps
+  extends Omit<IUser, 'id' | 'name' | 'created_at' | 'updated_at'> {}
 
 export const signInValidation = validation((getSchema) => ({
   body: getSchema<IBodyProps>(

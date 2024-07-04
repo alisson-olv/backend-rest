@@ -1,3 +1,3 @@
-export * from './City';
-export * from './Person';
 export * from './User';
+export * from './Groups';
+export * from './UserGroups';
