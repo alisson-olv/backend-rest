@@ -1,0 +1,21 @@
+name: CI-CD
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - uses: actions/checkout@v4.1.7
+      - name: building Docker image
+        uses: docker/build-push-action@v6.3.0
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags:
+            backend/diviconta:v1
+            backend/diviconta:latest
