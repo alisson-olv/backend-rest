@@ -1,6 +1,11 @@
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      tags:
+        - backend/diviconta:v1
+        - backend/diviconta:latest
     volumes:
       - .:/backend
       - /backend/node_modules
