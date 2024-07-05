@@ -6,7 +6,7 @@
     "singleQuote": true
   },
   "scripts": {
-    "start": "ts-node-dev --respawn ./src/index.ts",
+    "start": "ts-node-dev --poll --respawn ./src/index.ts",
     "production": "node ./build/index.js",
     "preproduction": "tsc",
     "test": "jest",
