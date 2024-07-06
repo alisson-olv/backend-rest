@@ -3,12 +3,10 @@ import { ETableNames } from '../ETableNames';
 
 export async function up(knex: Knex) {
   return knex.schema
-    .createTable(ETableNames.user_groups, (table) => {
-      table.bigIncrements('user_group_id').primary().index();
-      table.date('created_at').defaultTo(knex.fn.now());
+    .createTable(ETableNames.balances, (table) => {
+      table.bigIncrements('balance_id').primary().index();
       table
         .integer('user_id')
-        .index()
         .notNullable()
         .references('id')
         .inTable(ETableNames.user)
@@ -16,22 +14,22 @@ export async function up(knex: Knex) {
         .onDelete('RESTRICT');
       table
         .integer('group_id')
-        .index()
-        .notNullable()
         .references('group_id')
         .inTable(ETableNames.groups)
         .onUpdate('CASCADE')
         .onDelete('RESTRICT');
+      table.decimal('amount', 10, 2).notNullable();
+      table.timestamp('updated_at').defaultTo(knex.fn.now());
 
-      table.comment('Table used to archive user_groups.');
+      table.comment('Table used to store user balances.');
     })
     .then(() => {
-      console.log(`#Created table ${ETableNames.user_groups}`);
+      console.log(`#Created table ${ETableNames.balances}`);
     });
 }
 
 export async function down(knex: Knex) {
-  return knex.schema.dropTable(ETableNames.user_groups).then(() => {
-    console.log(`#Dropped table ${ETableNames.user_groups}`);
+  return knex.schema.dropTable(ETableNames.balances).then(() => {
+    console.log(`#Dropped table ${ETableNames.balances}`);
   });
 }

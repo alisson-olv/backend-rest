@@ -1,6 +1,6 @@
 export interface IUserGroups {
-  id: number;
+  userGroupId: number;
   userId: number;
   groupId: number;
-  created_at: Date;
+  createdAt: Date;
 }
