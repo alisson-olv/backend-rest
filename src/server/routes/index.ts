@@ -5,6 +5,7 @@ import {
   GroupsController,
   UserGroupsController,
 } from '../controllers';
+import { ExpenseParticipantsController } from '../controllers/expenseParticipants';
 
 const router = Router();
 
@@ -119,6 +120,38 @@ router.get(
   '/expenses/group/:groupId',
   ExpensesController.getByGroupIdValidation,
   ExpensesController.getByGroupId
+);
+
+// /EXPENSEPARTICIPANTS
+
+router.post(
+  '/expense_participants',
+  ExpenseParticipantsController.createValidation,
+  ExpenseParticipantsController.create
+);
+
+router.put(
+  '/expense_participants/:id',
+  ExpenseParticipantsController.updateByIdValidation,
+  ExpenseParticipantsController.updateById
+);
+
+router.get(
+  '/expense_participants/:id',
+  ExpenseParticipantsController.getByIdValidation,
+  ExpenseParticipantsController.getById
+);
+
+router.delete(
+  '/expense_participants/:id',
+  ExpenseParticipantsController.deleteByIdValidation,
+  ExpenseParticipantsController.deleteById
+);
+
+router.get(
+  '/expense_participants',
+  ExpenseParticipantsController.getAllValidation,
+  ExpenseParticipantsController.getAll
 );
 
 export { router };
