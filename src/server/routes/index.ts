@@ -5,6 +5,7 @@ import {
   GroupsController,
   UserGroupsController,
   ExpenseParticipantsController,
+  PaymentsController,
 } from '../controllers';
 
 const router = Router();
@@ -123,7 +124,6 @@ router.get(
 );
 
 // /EXPENSEPARTICIPANTS
-
 router.post(
   '/expense_participants',
   ExpenseParticipantsController.createValidation,
@@ -152,6 +152,37 @@ router.get(
   '/expense_participants',
   ExpenseParticipantsController.getAllValidation,
   ExpenseParticipantsController.getAll
+);
+
+// /PAYMENTS
+router.post(
+  '/payments',
+  PaymentsController.createValidation,
+  PaymentsController.create
+);
+
+router.put(
+  '/payments/:id',
+  PaymentsController.updateByIdValidation,
+  PaymentsController.updateById
+);
+
+router.get(
+  '/payments/:id',
+  PaymentsController.getByIdValidation,
+  PaymentsController.getById
+);
+
+router.delete(
+  '/payments/:id',
+  PaymentsController.deleteByIdValidation,
+  PaymentsController.deleteById
+);
+
+router.get(
+  '/payments',
+  PaymentsController.getAllValidation,
+  PaymentsController.getAll
 );
 
 export { router };
