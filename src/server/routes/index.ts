@@ -4,8 +4,8 @@ import {
   UsersController,
   GroupsController,
   UserGroupsController,
+  ExpenseParticipantsController,
 } from '../controllers';
-import { ExpenseParticipantsController } from '../controllers/expenseParticipants';
 
 const router = Router();
 
