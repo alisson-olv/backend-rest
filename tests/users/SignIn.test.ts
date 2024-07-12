@@ -6,7 +6,7 @@ const endPointSignInUser = '/users/signin';
 const endPointSignUpUser = '/users/signup';
 
 describe('Users - SignIn', () => {
-  const user: Omit<IUser, 'id' | 'created_at' | 'updated_at'> = {
+  const user: Omit<IUser, 'id' | 'createdAt' | 'updatedAt'> = {
     email: 'chico1@hotmail.com',
     name: 'chico moedas',
     password: '1234567',
