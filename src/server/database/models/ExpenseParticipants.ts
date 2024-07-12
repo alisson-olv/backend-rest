@@ -1,6 +1,6 @@
-export interface IExpensePariticipant {
+export interface IExpenseParticipant {
   expenseParticipantId: number;
   expenseId: number;
   userId: number;
-  amount_owed: number;
+  amountOwed: number;
 }

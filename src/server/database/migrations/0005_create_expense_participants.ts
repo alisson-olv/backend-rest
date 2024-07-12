@@ -21,7 +21,7 @@ export async function up(knex: Knex) {
         .inTable(ETableNames.expenses)
         .onUpdate('CASCADE')
         .onDelete('RESTRICT');
-      table.decimal('amount_owed', 10, 2).notNullable();
+      table.decimal('amountOwed', 10, 2).notNullable();
 
       table.comment('Table used to store expense participants.');
     })
