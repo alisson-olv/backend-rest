@@ -4,9 +4,9 @@ import { ETableNames } from '../ETableNames';
 export async function up(knex: Knex) {
   return knex.schema
     .createTable(ETableNames.expense_participants, (table) => {
-      table.bigIncrements('expense_participant_id').primary().index();
+      table.bigIncrements('expenseParticipantId').primary().index();
       table
-        .integer('user_id')
+        .integer('userId')
         .index()
         .notNullable()
         .references('id')
@@ -14,10 +14,10 @@ export async function up(knex: Knex) {
         .onUpdate('CASCADE')
         .onDelete('RESTRICT');
       table
-        .integer('expense_id')
+        .integer('expenseId')
         .index()
         .notNullable()
-        .references('expense_id')
+        .references('expenseId')
         .inTable(ETableNames.expenses)
         .onUpdate('CASCADE')
         .onDelete('RESTRICT');

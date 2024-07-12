@@ -4,10 +4,10 @@ import { ETableNames } from '../ETableNames';
 export async function up(knex: Knex) {
   return knex.schema
     .createTable(ETableNames.user_groups, (table) => {
-      table.bigIncrements('user_group_id').primary().index();
-      table.date('created_at').defaultTo(knex.fn.now());
+      table.bigIncrements('userGroupId').primary().index();
+      table.date('createdAt').defaultTo(knex.fn.now());
       table
-        .integer('user_id')
+        .integer('userId')
         .index()
         .notNullable()
         .references('id')
@@ -15,10 +15,10 @@ export async function up(knex: Knex) {
         .onUpdate('CASCADE')
         .onDelete('RESTRICT');
       table
-        .integer('group_id')
+        .integer('groupId')
         .index()
         .notNullable()
-        .references('group_id')
+        .references('groupId')
         .inTable(ETableNames.groups)
         .onUpdate('CASCADE')
         .onDelete('RESTRICT');

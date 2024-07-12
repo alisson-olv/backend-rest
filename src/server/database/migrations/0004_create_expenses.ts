@@ -4,11 +4,11 @@ import { ETableNames } from '../ETableNames';
 export async function up(knex: Knex) {
   return knex.schema
     .createTable(ETableNames.expenses, (table) => {
-      table.bigIncrements('expense_id').primary().index();
-      table.date('created_at').defaultTo(knex.fn.now());
-      table.date('updated_at').defaultTo(knex.fn.now());
+      table.bigIncrements('expenseId').primary().index();
+      table.date('createdAt').defaultTo(knex.fn.now());
+      table.date('updatedAt').defaultTo(knex.fn.now());
       table
-        .integer('user_id')
+        .integer('userId')
         .index()
         .notNullable()
         .references('id')
@@ -16,10 +16,10 @@ export async function up(knex: Knex) {
         .onUpdate('CASCADE')
         .onDelete('RESTRICT');
       table
-        .integer('group_id')
+        .integer('groupId')
         .index()
         .notNullable()
-        .references('group_id')
+        .references('groupId')
         .inTable(ETableNames.groups)
         .onUpdate('CASCADE')
         .onDelete('RESTRICT');

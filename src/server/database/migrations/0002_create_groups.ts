@@ -4,10 +4,10 @@ import { ETableNames } from '../ETableNames';
 export async function up(knex: Knex) {
   return knex.schema
     .createTable(ETableNames.groups, (table) => {
-      table.bigIncrements('group_id').primary().index();
+      table.bigIncrements('groupId').primary().index();
       table.string('name').notNullable().checkLength('>', 3);
-      table.date('created_at').defaultTo(knex.fn.now());
-      table.date('updated_at').defaultTo(knex.fn.now());
+      table.date('createdAt').defaultTo(knex.fn.now());
+      table.date('updatedAt').defaultTo(knex.fn.now());
 
       table.comment('Table used to store group information.');
     })

@@ -8,8 +8,8 @@ export async function up(knex: Knex) {
       table.string('name').notNullable().checkLength('>', 3);
       table.string('password').notNullable().checkLength('>=', 6);
       table.string('email').unique().notNullable().checkLength('>=', 5);
-      table.date('created_at').defaultTo(knex.fn.now());
-      table.date('updated_at').defaultTo(knex.fn.now());
+      table.date('createdAt').defaultTo(knex.fn.now());
+      table.date('updatedAt').defaultTo(knex.fn.now());
 
       table.comment('Table used to archive users from system.');
     })
