@@ -1,5 +1,3 @@
-import { BalancesController } from './../controllers/balances/index';
-import { ExpensesController } from './../controllers/expenses/index';
 import { Router } from 'express';
 import {
   UsersController,
@@ -7,6 +5,8 @@ import {
   UserGroupsController,
   ExpenseParticipantsController,
   PaymentsController,
+  ExpensesController,
+  BalancesController,
 } from '../controllers';
 
 const router = Router();
