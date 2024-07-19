@@ -1,3 +1,4 @@
+import { BalancesController } from './../controllers/balances/index';
 import { ExpensesController } from './../controllers/expenses/index';
 import { Router } from 'express';
 import {
@@ -183,6 +184,37 @@ router.get(
   '/payments',
   PaymentsController.getAllValidation,
   PaymentsController.getAll
+);
+
+// /BALANCES
+router.post(
+  '/balances',
+  BalancesController.createValidation,
+  BalancesController.create
+);
+
+router.get(
+  '/balances',
+  BalancesController.getAllValidation,
+  BalancesController.getAll
+);
+
+router.get(
+  '/balances/:id',
+  BalancesController.getByIdValidation,
+  BalancesController.getById
+);
+
+router.put(
+  '/balances/:id',
+  BalancesController.updateByIdValidation,
+  BalancesController.updateById
+);
+
+router.delete(
+  '/balances/:id',
+  BalancesController.deleteByIdValidation,
+  BalancesController.deleteById
 );
 
 export { router };

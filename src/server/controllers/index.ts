@@ -4,3 +4,4 @@ export * from './userGroups';
 export * from './expenses';
 export * from './expenseParticipants';
 export * from './payments';
+export * from './balances';
